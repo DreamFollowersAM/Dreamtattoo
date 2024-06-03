@@ -1,0 +1,104 @@
+{% extends 'layout.html' %} {% block content %}
+
+<section class="sct container-fluid m-0 p-3">
+  <div
+    id="carebanner"
+    class="ttl container-fluid hover-shadow m-0 p-0 rounded-6 d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1 class="shadowtext">Nuestros artistas</h1>
+  </div>
+
+  <div
+    class="container-fluid d-flex flex-column justify-content-center align-items-center hover-shadow p-5"
+  >
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {% for art in arts %}
+        <div class="swiper-slide">
+          <div class="card text-center text-white abt rounded-6 hover-shadow">
+            <div class="bg-image mt-3">
+              <img
+                src="{{art.image.url}}"
+                class="img-fluid rounded-circle hover-shadow"
+                style="width: 150px; height: 150px"
+              />
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">{{art.name}}</h5>
+              <p class="card-text" style="font-style: italic">
+                {{art.username}}
+              </p>
+              <p class="card-text">{{art.description}}</p>
+
+              <a
+                class="btn btn-outline-light btn-lg m-2 rounded-6 hover-shadow"
+                data-mdb-ripple-init
+                href="{% url 'artist:artist_detail' art.username %}"
+                role="button"
+                >ver</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next text-white"></div>
+      <div class="swiper-button-prev text-white"></div>
+    </div>
+  </div>
+
+  <div
+    class="container-fluid d-flex flex-column justify-content-center align-items-center hover-shadow px-5"
+  >
+    <h3 class="mb-5 shadowtext">
+      Recomendaciones para mantener el tatuaje en buen estado después de su
+      curación total
+    </h3>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 m-auto">
+        <div class="card text-white abt rounded-6 hover-shadow">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fab fa-instagram"></i> Card title
+            </h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 m-auto">
+        <div class="card text-white abt rounded-6 hover-shadow">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fab fa-instagram"></i> Card title
+            </h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 m-auto">
+        <div class="card text-white abt rounded-6 hover-shadow">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fab fa-instagram"></i> Card title
+            </h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

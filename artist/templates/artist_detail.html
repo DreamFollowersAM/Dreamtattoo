@@ -1,0 +1,72 @@
+{% extends 'layout.html' %} {% block content %}
+
+<section class="sct container-fluid m-0 p-3">
+  <div
+    class="container-fluid d-flex flex-column justify-content-center align-items-center px-5 mb-5"
+  >
+    <div
+      class="container-fluid mt-4 p-0 d-flex gap-3 justify-content-center align-items-center"
+    >
+      <div
+        class="descprof p-4 rounded-6 hover-shadow d-flex justify-content-center align-items-center"
+      >
+        <div class="bg-image m-3">
+          <img
+            src="{{art.image.url}}"
+            class="img-fluid rounded-circle hover-shadow"
+            style="width: 150px; height: 150px"
+          />
+        </div>
+        <div class="card-body m-3">
+          <h5 class="card-title">{{art.name}}</h5>
+          <p class="card-text" style="font-style: italic">{{art.username}}</p>
+          <p class="card-text">{{art.description}}</p>
+
+          <div class="d-flex align-items-center gap-5 text-white">
+            <a href="{{art.instagram}}" class="nav-link" target="_blank"
+              ><i class="fab fa-instagram"></i> Instagram</a
+            >
+            <a href="{{art.youtube}}" class="nav-link" target="_blank"
+              ><i class="fab fa-youtube"></i> Youtube</a
+            >
+            <a href="{{art.other}}" class="nav-link" target="_blank"
+              ><i class="fas fa-globe"></i> Otro</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="calsqr rounded-6 abt hover-shadow p-3">
+        {% regroup books by date|date:"Y-m-d" as bks %} {% for bk in bks %}
+        <div
+          class="container-fluid rounded-6 hover-shadow gap-3 d-flex flex-column justify-content-center p-3 mb-3 {% if bk.list|length > 3 %} setred {% elif bk.list|length <= 3 and bk.list|length > 1 %} setorange {% else %} setgreen {% endif %}"
+        >
+          <h4 class="text-center m-0 p-0">{{ bk.grouper }}</h4>
+          {% for el in bk.list %}
+          <div class="container-fluid">
+            <h5 class="m-0 p-0">{{el.title}}</h5>
+            <p class="m-0 p-0">{{el.description}}</p>
+            <p class="m-0 p-0">{{el.date}}</p>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid px-5 mb-5">
+    <div class="row justify-content-center">
+      {% for pst in posts|slice:":9" %}
+      <div class="col-md-4 col-xs-6 my-3">
+        <img
+          src="{{pst.image.url}}"
+          class="img-fluid rounded-6 hover-shadow"
+          alt="{{pst.title}}"
+        />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

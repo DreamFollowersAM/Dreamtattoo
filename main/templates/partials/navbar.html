@@ -1,0 +1,84 @@
+{% load static %}
+<!-- Navbar -->
+<nav
+  class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top"
+  style="background-color: #222222 !important"
+>
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="{% static 'media/DreamTattooLg.png' %}"
+          height="18"
+          alt="DreamTattoo Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/artist">Artistas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cares">Cuidados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">Nosotros</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center text-light">
+      <!-- Icon -->
+      <a
+        class="text-reset me-3"
+        target="_blank"
+        href="mailto:angelito2002.07.21.2@gmail.com?subject=Agendar%20cita?body=Me%20gustaria%20agendar%20mi%20nombre%20es:%20"
+        title="Envia un correo"
+      >
+        <i class="far fa-envelope"></i>
+      </a>
+      <a
+        class="text-reset me-3"
+        target="_blank"
+        href="https://ig.me/m/dream_followers_am"
+        title="Agenda por Instagram"
+      >
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a
+        class="text-reset me-3"
+        target="_blank"
+        href="https://wa.me/524775540188?text=Me%20gustaria%20agendar%20una%20cita%20para%20un%20tatuaje"
+        title="Agenda por WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
